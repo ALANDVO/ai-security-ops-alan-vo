@@ -1,0 +1,46 @@
+{
+  "realm": "security-ops",
+  "enabled": true,
+  "displayName": "AI Security Ops Center",
+  "clients": [
+    {
+      "clientId": "security-ops",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "change-this-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:8000/api/auth/callback",
+        "https://yourdomain.com/api/auth/callback"
+      ],
+      "webOrigins": ["http://localhost:3000", "http://localhost:8000"],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "admin", "description": "Full access including user management" },
+      { "name": "analyst", "description": "Can ingest threats and manage incidents" },
+      { "name": "viewer", "description": "Read-only access to threats and incidents" }
+    ]
+  },
+  "users": [
+    {
+      "username": "demo-analyst",
+      "enabled": true,
+      "email": "analyst@demo.local",
+      "credentials": [{ "type": "password", "value": "demo-password", "temporary": false }],
+      "realmRoles": ["analyst"]
+    },
+    {
+      "username": "demo-admin",
+      "enabled": true,
+      "email": "admin@demo.local",
+      "credentials": [{ "type": "password", "value": "demo-password", "temporary": false }],
+      "realmRoles": ["admin"]
+    }
+  ]
+}

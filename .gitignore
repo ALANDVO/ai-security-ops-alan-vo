@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
+*.pyo
 .env
 .venv/
 venv/
@@ -13,3 +14,7 @@ build/
 frontend/node_modules/
 frontend/dist/
 data/
+*.db
+*.sqlite
+.antigravitycli/
+.omp/
