@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "ai-security-ops-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "ai-security",
+  "summary": "Work in progress: ai-security-ops-alan-vo",
+  "workflows": [
+    "Ingest and score security threats with deterministic severity-weighted algorithms; auto-correlate related events into incidents by asset and event type",
+    "Browse and manage incidents with full event timeline, incident status updates, and advisory LLM root-cause analysis grounded in real threat records",
+    "Query threat data with natural language (keyword-fallback deterministic engine; LLM optional); export per-asset risk scores and contributing threat factors"
+  ],
+  "auth": "oidc-keycloak-pkce-backend-sessions",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}

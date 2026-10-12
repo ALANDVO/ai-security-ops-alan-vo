@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "current_feature": "baseline-migration",
+  "features": [
+    {
+      "id": "baseline-migration",
+      "title": "Backend structure migration with SQLite persistence",
+      "status": "done",
+      "acceptance": [
+        "backend/app/main.py exists as FastAPI create_app factory",
+        "SQLite persistence for threats, incidents, asset_scores, audit_log",
+        "30 backend tests pass with pytest",
+        "Frontend vitest tests pass",
+        "All required files present: portfolio.json, CHANGELOG.md, pyproject.toml, compose.yaml, backend/Dockerfile, frontend/Dockerfile, .github/workflows/ci.yml"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/core/config.py",
+        "backend/app/core/database.py",
+        "backend/app/core/logging.py",
+        "backend/app/api/auth.py",
+        "backend/app/api/routes.py",
+        "backend/app/api/schemas.py",
+        "backend/app/services/detection.py",
+        "backend/app/services/correlation.py",
+        "backend/app/services/scoring.py",
+        "backend/app/services/llm.py",
+        "backend/requirements.txt",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        "frontend/vite.config.ts",
+        "frontend/src/tests/components.test.tsx",
+        "compose.yaml",
+        "pyproject.toml",
+        "portfolio.json",
+        "CHANGELOG.md",
+        ".github/workflows/ci.yml"
+      ],
+      "tests": [
+        "backend/tests/test_security_ops.py",
+        "frontend/src/tests/components.test.tsx"
+      ]
+    },
+    {
+      "id": "oidc-integration-test",
+      "title": "OIDC login/callback integration test with local test IdP",
+      "status": "planned",
+      "acceptance": [
+        "Test crosses real HTTP boundary with OIDC authorization code flow",
+        "State/PKCE rejection tested",
+        "Token propagation into authorized API request tested"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "llm-anthropic-gemini-tests",
+      "title": "Mocked LLM adapter tests for Anthropic and Gemini providers",
+      "status": "planned",
+      "acceptance": [
+        "Anthropic provider returns advisory classification result",
+        "Gemini provider returns advisory classification result",
+        "Provider error surfaces clearly without fabricating success"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}
