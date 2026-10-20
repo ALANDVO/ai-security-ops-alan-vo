@@ -1,5 +1,6 @@
 """AI Security Operations Center — FastAPI application entry point."""
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +14,15 @@ from app.api.routes import router
 
 setup_logging(settings.log_level)
 logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifespan handler for startup/shutdown."""
+    init_db()
+    logger.info("AI Security Ops Center ready — demo_mode=%s", settings.demo_mode)
+    yield
+    # Shutdown: add cleanup here if needed
 
 
 def create_app() -> FastAPI:
@@ -29,6 +39,7 @@ def create_app() -> FastAPI:
         ),
         docs_url="/api/docs",
         redoc_url="/api/redoc",
+        lifespan=lifespan,
     )
 
     application.add_middleware(
@@ -40,11 +51,6 @@ def create_app() -> FastAPI:
     )
 
     application.include_router(router)
-
-    @application.on_event("startup")
-    async def startup():
-        init_db()
-        logger.info("AI Security Ops Center ready — demo_mode=%s", settings.demo_mode)
 
     # Serve compiled frontend if present
     if os.path.isdir("frontend/dist"):
