@@ -1,5 +1,5 @@
 """Pydantic schemas for request/response validation."""
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, List, Dict, Any
 from datetime import datetime
 
@@ -14,6 +14,8 @@ class ThreatCreate(BaseModel):
 
 
 class ThreatEvent(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: str
     source: str
     event_type: str
@@ -26,9 +28,6 @@ class ThreatEvent(BaseModel):
     raw_data: Dict[str, Any]
     detected_at: datetime
     correlated_incident: Optional[str] = None
-
-    class Config:
-        from_attributes = True
 
 
 class IncidentCreate(BaseModel):
@@ -47,6 +46,8 @@ class IncidentUpdate(BaseModel):
 
 
 class Incident(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: str
     title: str
     severity: str
@@ -57,9 +58,6 @@ class Incident(BaseModel):
     updated_at: datetime
     llm_analysis: Optional[str] = None
     llm_recommendation: Optional[str] = None
-
-    class Config:
-        from_attributes = True
 
 
 class TimelineEntry(BaseModel):

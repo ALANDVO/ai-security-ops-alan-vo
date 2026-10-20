@@ -2,8 +2,12 @@
   "name": "ai-security-ops",
   "version": "1.0.0",
   "private": true,
-  "description": "AI Security Operations Center — Enterprise React Dashboard",
-  "author": "Alan Vo <alanvo@gmail.com>",
+  "description": "AI Security Operations Center \u2014 Enterprise React Dashboard",
+  "author": {
+    "name": "Alan Vo",
+    "email": "alanvo@gmail.com",
+    "url": "https://github.com/ALANDVO"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

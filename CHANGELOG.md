@@ -1,8 +1,17 @@
 # Changelog
 
+## 1.2.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.1.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+### Fixed (2026-10-20)
+- Frontend test setup: Added ResizeObserver polyfill for jsdom (recharts ResponsiveContainer)
+- Backend: Migrated from deprecated `on_event("startup")` to lifespan asynccontextmanager
+- Backend: Migrated Pydantic schemas from class-based `Config` to `model_config = ConfigDict(from_attributes=True)`
 
 All notable changes to AI Security Operations Center.
 
