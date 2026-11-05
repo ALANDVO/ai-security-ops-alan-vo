@@ -34,10 +34,14 @@ Acceptance:
 
 ### llm-anthropic-gemini-tests — Mocked LLM adapter tests for Anthropic and Gemini providers
 
-Status: planned
+Status: done
 
 Acceptance:
 - Anthropic provider returns advisory classification result
 - Gemini provider returns advisory classification result
 - Provider error surfaces clearly without fabricating success
+
+Implementation: `backend/app/services/llm.py`
+
+Tests: `backend/tests/test_llm.py`
 
