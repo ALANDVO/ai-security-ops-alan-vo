@@ -18,3 +18,14 @@ data/
 *.sqlite
 .antigravitycli/
 .omp/
+.turbo/
+.env.local
+.env.*.local
+**/data/media/
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

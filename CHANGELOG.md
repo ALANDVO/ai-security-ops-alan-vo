@@ -1,6 +1,20 @@
 # Changelog
 
+## 1.4.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.3.0 — work-in-progress checkpoint
+
+### Added (2026-11-05)
+- Mocked LLM adapter tests for Anthropic and Gemini providers (`backend/tests/test_llm.py`)
+- 17 new unit tests covering classify_threat, correlate_incident, natural_language_query fallback, and JSON parsing
+- Provider error handling tests verifying graceful degradation without fabricated success
+- Total backend tests: 47 (30 original + 17 LLM)
+
+### Fixed
+- LLM service now properly tested with mocked Anthropic, Gemini, and OpenAI-compatible providers
+- Deterministic fallback behavior validated for classify_threat, correlate_incident, and NL query
 
 Partial code published for continued development. Known issues: STATUS.md.
 

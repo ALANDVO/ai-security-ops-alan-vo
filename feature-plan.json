@@ -56,14 +56,18 @@
     {
       "id": "llm-anthropic-gemini-tests",
       "title": "Mocked LLM adapter tests for Anthropic and Gemini providers",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "Anthropic provider returns advisory classification result",
         "Gemini provider returns advisory classification result",
         "Provider error surfaces clearly without fabricating success"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/services/llm.py"
+      ],
+      "tests": [
+        "backend/tests/test_llm.py"
+      ]
     }
   ]
 }
