@@ -45,3 +45,6 @@ Implementation: `backend/app/services/llm.py`
 
 Tests: `backend/tests/test_llm.py`
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

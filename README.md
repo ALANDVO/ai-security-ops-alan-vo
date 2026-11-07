@@ -207,3 +207,7 @@ docker compose exec backend sqlite3 /app/data/security_ops.db ".restore /app/dat
 ---
 
 Alan Vo | alanvo@gmail.com
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

@@ -61,3 +61,7 @@ All notable changes to AI Security Operations Center.
 - `backend/app/api/`: auth, routes, schemas
 - `backend/app/services/`: detection, correlation, scoring, llm
 - `frontend/src/`: React pages, components, typed API client
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
