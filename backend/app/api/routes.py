@@ -22,8 +22,15 @@ router = APIRouter(prefix="/api", tags=["security-ops"])
 
 @router.get("/health")
 async def health():
-    return {"status": "ok", "service": "ai-security-ops"}
-
+    """Health check with database connectivity verification."""
+    from app.core.database import get_db
+    try:
+        with get_db() as conn:
+            conn.execute("SELECT 1").fetchone()
+        return {"status": "ok", "service": "ai-security-ops", "database": "connected"}
+    except Exception as exc:
+        logger.error("Health check failed: %s", exc)
+        return {"status": "degraded", "service": "ai-security-ops", "database": "disconnected", "error": str(exc)}
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
 
