@@ -1,6 +1,18 @@
 # Changelog
 
+## 1.5.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.4.0 — work-in-progress checkpoint
+
+### Added (2026-11-08)
+- Health endpoint (`/api/health`) now verifies database connectivity, returning `database: "connected"` on success or `database: "degraded"` with error details on failure
+- Health check test validates database connectivity assertion
+- Supports Docker/Kubernetes health checks and readiness probes via compose.yaml healthcheck
+
+### Fixed
+- Health endpoint no longer returns "ok" without verifying database state
 
 Partial code published for continued development. Known issues: STATUS.md.
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "baseline-migration",
+  "current_feature": "health-db-check",
   "features": [
     {
       "id": "baseline-migration",
@@ -39,6 +39,24 @@
       "tests": [
         "backend/tests/test_security_ops.py",
         "frontend/src/tests/components.test.tsx"
+      ]
+    },
+    {
+      "id": "health-db-check",
+      "title": "Health endpoint verifies database connectivity",
+      "status": "done",
+      "acceptance": [
+        "/api/health returns {\"status\": \"ok\", \"service\": \"ai-security-ops\", \"database\": \"connected\"} when DB is reachable",
+        "/api/health returns {\"status\": \"degraded\", \"service\": \"ai-security-ops\", \"database\": \"disconnected\", \"error\": \"...\"} when DB is unreachable",
+        "Test validates database connectivity assertion in health response",
+        "Compose healthcheck uses the improved endpoint"
+      ],
+      "implementation": [
+        "backend/app/api/routes.py",
+        "backend/tests/test_security_ops.py"
+      ],
+      "tests": [
+        "backend/tests/test_security_ops.py::TestAPI::test_health_no_auth"
       ]
     },
     {

@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-baseline-migration
+health-db-check
 
 ## Roadmap
 
@@ -22,6 +22,20 @@ Acceptance:
 Implementation: `backend/app/main.py`, `backend/app/core/config.py`, `backend/app/core/database.py`, `backend/app/core/logging.py`, `backend/app/api/auth.py`, `backend/app/api/routes.py`, `backend/app/api/schemas.py`, `backend/app/services/detection.py`, `backend/app/services/correlation.py`, `backend/app/services/scoring.py`, `backend/app/services/llm.py`, `backend/requirements.txt`, `backend/Dockerfile`, `frontend/Dockerfile`, `frontend/vite.config.ts`, `frontend/src/tests/components.test.tsx`, `compose.yaml`, `pyproject.toml`, `portfolio.json`, `CHANGELOG.md`, `.github/workflows/ci.yml`
 
 Tests: `backend/tests/test_security_ops.py`, `frontend/src/tests/components.test.tsx`
+
+### health-db-check — Health endpoint verifies database connectivity
+
+Status: done
+
+Acceptance:
+- /api/health returns {"status": "ok", "service": "ai-security-ops", "database": "connected"} when DB is reachable
+- /api/health returns {"status": "degraded", "service": "ai-security-ops", "database": "disconnected", "error": "..."} when DB is unreachable
+- Test validates database connectivity assertion in health response
+- Compose healthcheck uses the improved endpoint
+
+Implementation: `backend/app/api/routes.py`, `backend/tests/test_security_ops.py`
+
+Tests: `backend/tests/test_security_ops.py::TestAPI::test_health_no_auth`
 
 ### oidc-integration-test — OIDC login/callback integration test with local test IdP
 
