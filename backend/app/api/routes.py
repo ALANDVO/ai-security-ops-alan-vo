@@ -26,7 +26,7 @@ async def health():
     from app.core.database import get_db
     try:
         with get_db() as conn:
-            conn.execute("SELECT 1").fetchone()
+            conn.execute("PRAGMA user_version").fetchone()
         return {"status": "ok", "service": "ai-security-ops", "database": "connected"}
     except Exception as exc:
         logger.error("Health check failed: %s", exc)
