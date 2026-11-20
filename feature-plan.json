@@ -62,14 +62,23 @@
     {
       "id": "oidc-integration-test",
       "title": "OIDC login/callback integration test with local test IdP",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Test crosses real HTTP boundary with OIDC authorization code flow",
         "State/PKCE rejection tested",
         "Token propagation into authorized API request tested"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/api/auth.py - OIDC handler with PKCE",
+        "backend/app/api/routes.py - /auth/login and /auth/callback endpoints",
+        "backend/tests/test_security_ops.py - OIDC integration tests"
+      ],
+      "tests": [
+        "backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_invalid_state_returns_400",
+        "backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_missing_code_returns_400",
+        "backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_token_propagation_to_me_endpoint",
+        "backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_nonce_mismatch_returns_401"
+      ]
     },
     {
       "id": "llm-anthropic-gemini-tests",

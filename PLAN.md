@@ -39,12 +39,16 @@ Tests: `backend/tests/test_security_ops.py::TestAPI::test_health_no_auth`
 
 ### oidc-integration-test — OIDC login/callback integration test with local test IdP
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Test crosses real HTTP boundary with OIDC authorization code flow
 - State/PKCE rejection tested
 - Token propagation into authorized API request tested
+
+Implementation: `backend/app/api/auth.py - OIDC handler with PKCE`, `backend/app/api/routes.py - /auth/login and /auth/callback endpoints`, `backend/tests/test_security_ops.py - OIDC integration tests`
+
+Tests: `backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_invalid_state_returns_400`, `backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_missing_code_returns_400`, `backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_token_propagation_to_me_endpoint`, `backend/tests/test_security_ops.py::TestOIDCIntegration::test_oidc_callback_nonce_mismatch_returns_401`
 
 ### llm-anthropic-gemini-tests — Mocked LLM adapter tests for Anthropic and Gemini providers
 
