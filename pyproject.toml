@@ -4,7 +4,7 @@ build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name = "ai-security-ops"
-version = "1.7.0"
+version = "1.8.0"
 description = "AI-powered security operations center with LLM-driven threat detection and incident correlation"
 authors = [{ name = "Alan Vo", email = "alanvo@gmail.com" }]
 readme = "README.md"
